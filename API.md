@@ -22,6 +22,7 @@ https://api.newscatcherapi.com
 |v2|version2|
 |search|endpoint(정확히 어떤 것을 달라!)|
 |?|Query(API마다 rule이 있음)|
+
 ![Query](/images/query.png)
 
 -> 해당 Query 내용 : Tesla에 관련된 뉴스를 보여달라, page_size = 2(2개 페이지를 받는다)

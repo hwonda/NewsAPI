@@ -36,3 +36,9 @@ https://api.newscatcherapi.com
 
 ![success](images/success.png)
 -> API를 요청 성공했을 때, 받는 정보들.(Objects 객체들)
+
+## API를 볼 때 주의할 것들
+- API의 각 Endpoint가 주는 데이터
+- API 인증방법(api key or token?)
+- Query로 쓸 수 있는 인자들
+- API 응답 내용들(내가 어떤 결과를 받는가?) 

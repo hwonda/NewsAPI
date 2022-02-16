@@ -24,17 +24,18 @@ JavaScript는 1개의 쓰레드(Stack)을 가져, 동기적으로 일을 처리�
     console.log(1);
     setTimeout(()=>{
         console.log(2);
-    },5000)
+    },5*1000)
     console.log(3);
 
 신기하게도 결과값은 다음과 같다.
 ```javascript
 1
 3
-2   //5초가 지난 뒤
+//5초가 지난 뒤
+2   
 ```
 
-![javascript runtime](../images/javascript/스크린샷%202022-02-16%20오후%209.10.01.png)
+![javascript runtime](images/javascript/runtime.png)
 
 이는 서두에 얘기한대로, Javascript는 한 번에 하나의 일만 처리할 수 있는 싱글쓰레드(Single Thread)이기 때문이다. 위 그림과 같이 JavaScript 코드가 실행되면 스택에 새로운 프레임이 들어오고(그림속 function1, function2) 완료되면 바로 나간다.<br><br>
 이 때 setTimeout, Event handler(EventListener 등), Ajax 등 처리 시간이 오래걸리는 Web APIs로부터 Tesk를 받으면 큐(Queue)에 저장한다.
@@ -49,4 +50,4 @@ JavaScript는 1개의 쓰레드(Stack)을 가져, 동기적으로 일을 처리�
 : Queue는 눈치를 많이 보는 애라, Event Loop를 통해 Stack이 비었는지 확인하고, 비어있다면 Event Loop를 통해 아이템을 꺼내 Stack에 이동시킨다. Event Loop는 스택과 큐 사이에서 흐름을 제어한다고 볼 수 있다.
 
 
-### 위 예제에서 console.log(2)를 실행해야만 console.log(3)가 실행될 수 있다면, console.log(3)은 2와 같이 5초를 기다려야 한다. 이것처럼 API호출 이후 일어나야할 Stack은 'async','await','fetch'로 미룰 수 있다.
+### 위 예제에서 console.log(2)를 실행해야만 console.log(3)가 실행될 수 있다면, console.log(3)은 2가 실행될 5초를 함께 기다려야 한다. 이것처럼 API호출 이후 일어나야할 Stack은 'async','await','fetch'로 미룰 수 있다.
